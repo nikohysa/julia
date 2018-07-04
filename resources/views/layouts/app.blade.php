@@ -13,8 +13,17 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
+<body>
+<div class="container-fluid">
+    @yield('content')
+</div>
+  {{--  @guest
+
+    @else
+
+    @endguest
     <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-light bg-info">
             <div class="container-fluid">
                 <div class="pull-left">
                     <!-- Branding Image -->
@@ -63,8 +72,7 @@
                 </div>
             </div>
         </nav>
-
-        @yield('content')
+        @yield('content')--}}
 
     </div>
 
