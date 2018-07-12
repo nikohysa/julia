@@ -23,6 +23,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+    	$data = [
+    		'projects'=> (new ProjectController())->index()
+		];
+        return view('home')->with('data',$data);
     }
 }

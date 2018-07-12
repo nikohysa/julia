@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class ProjectController extends Controller
 {
 	public function __construct() {
-		/*$this->middleware('auth');*/
+		$this->middleware('auth');
 	}
     /**
      * Display a listing of the resource.
@@ -18,12 +18,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
-		$user = Auth::user();
-		var_dump($user);
-		return $user;
-		$projects = Project::where('user_id', Auth::user()->id);
-		return $projects;
+		return Project::where('user_id', Auth::user()->id)->get();
     }
 
     /**
