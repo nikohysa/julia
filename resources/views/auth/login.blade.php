@@ -4,7 +4,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-3">
-
+				{{--FIXME: Left empty to add center the form in the view--}}
 			</div>
 			<div class="col-6">
 				<div class="card">
@@ -68,7 +68,7 @@
 				</div>
 			</div>
 			<div class="col-3">
-
+				{{--FIXME: Left empty to add center the form in the view--}}
 			</div>
 		</div>
 	</div>
