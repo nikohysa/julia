@@ -52,3 +52,15 @@
  @import "material-dashboard/plugins/perfect-scrollbar";
 
  @import "material-dashboard/responsive";
+
+
+/*Sidebar*/
+
+.sidebar-wrapper {
+ [aria-expanded="false"] .fa-folder-open {
+  display: none;
+ }
+ [aria-expanded="true"] .fa-folder {
+  display: none;
+ }
+}

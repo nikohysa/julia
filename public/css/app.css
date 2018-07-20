@@ -20895,3 +20895,13 @@ Copyright (c) 2015 Daniel Eden
   }
 }
 
+/*Sidebar*/
+
+.sidebar-wrapper [aria-expanded="false"] .fa-folder-open {
+  display: none;
+}
+
+.sidebar-wrapper [aria-expanded="true"] .fa-folder {
+  display: none;
+}
+

@@ -1,4 +1,3 @@
-
 @section('sidebar')
 	<div class="sidebar-wrapper">
 		<div class="logo">
@@ -12,83 +11,38 @@
 				   data-toggle="collapse" aria-controls="projects">
 					<h3>
 						<i class="fas fa-folder"></i>
-						<p>{{ dd($data['projects'][0]) }}</p>
+						<i class="fas fa-folder-open"></i>
+						<p>Projects</p>
 					</h3>
 				</a>
 			</li>
-		</ul>
-		<div class="collapse" id="projects">
-			<ul class="nav">
+			<div class="collapse" id="projects">
+				@foreach($data['projects'] as $project)
+					<li class="nav-item">
+						<a class="nav-link">
+							<div class="form-check">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" value="" checked="">
+									<span class="form-check-sign"><span class="check"></span></span>
+									<span class="fas fa-archive"></span>
+									{{$project->name}}
+								</label>
+							</div>
+						</a>
+					</li>
+				@endforeach
+				@if( $data['projects']->isEmpty())
+					<li class="nav-item">
+						<p>There are no projects currently</p>
+					</li>
+				@endif
 				<li class="nav-item">
 					<a class="nav-link">
-						<h3><i class="fas fa-user"></i>
-							<p>User Profile</p>
-						</h3>
+						<i class="fas fa-plus"></i>
+						Create new project
 					</a>
 				</li>
-			</ul>
-
-		</div>
-		{{--<ul class="nav">
-			<li class="nav-item active">
-			</li>
+			</div>
 		</ul>
-		<ul class="nav">
-			<li class="nav-item active">
-				<a class="nav-link">
-					<i class="material-icons"></i>
-					<p>Dashboard</p>
-				</a>
-			</li>
-			<li class="nav-item ">
-				<a class="nav-link">
-					<i class="material-icons"></i>
-					<p>User Profile</p>
-				</a>
-			</li>
-			<li class="nav-item ">
-				<a class="nav-link">
-					<i class="material-icons"></i>
-					<p>Table List</p>
-				</a>
-			</li>
-			<li class="nav-item ">
-				<a class="nav-link">
-					<i class="material-icons"></i>
-					<p>Typography</p>
-				</a>
-			</li>
-			<li class="nav-item ">
-				<a class="nav-link">
-					<i class="material-icons"></i>
-					<p>Icons</p>
-				</a>
-			</li>
-			<li class="nav-item ">
-				<a class="nav-link">
-					<i class="material-icons"></i>
-					<p>Maps</p>
-				</a>
-			</li>
-			<li class="nav-item ">
-				<a class="nav-link">
-					<i class="material-icons"></i>
-					<p>Notifications</p>
-				</a>
-			</li>
-			<li class="nav-item ">
-				<a class="nav-link">
-					<i class="material-icons"></i>
-					<p>RTL Support</p>
-				</a>
-			</li>
-			<li class="nav-item active-pro ">
-				<a class="nav-link">
-					<i class="material-icons"></i>
-					<p>Upgrade to PRO</p>
-				</a>
-			</li>
-		</ul>--}}
 	</div>
-
 @endsection
