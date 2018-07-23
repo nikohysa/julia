@@ -20,6 +20,7 @@
 	},
 	"dependencies": {
 		"froala-editor": "^2.8.4",
+		"js-datepicker": "^3.3.1",
 		"npm": "^6.2.0"
 	}
 }

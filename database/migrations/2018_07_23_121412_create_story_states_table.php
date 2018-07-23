@@ -16,8 +16,7 @@ class CreateStoryStatesTable extends Migration
         Schema::create('story_states', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->nullable();
-            $table->timestamp('start')->nullable();
-            $table->timestamp('finish')->nullable();
+            $table->integer('position');
             $table->timestamps();
         });
     }

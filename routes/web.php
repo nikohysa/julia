@@ -46,3 +46,7 @@ Route::post('/stories/create','StoriesController@store');
 Route::get('/settings','SettingsController@index');
 Route::get('/settings/storyStates/create','SettingsController@storyStatesCreate');
 Route::post('/settings/storyStates/create','SettingsController@storyStatesStore');
+
+Route::get('/settings/storyStates/{id}','SettingsController@storyStatesEdit');
+Route::post('/settings/storyStates/{id}','SettingsController@storyStatesUpdates');
+Route::post('/settings/storyStates/delete/{id}','SettingsController@storyStatesDelete');

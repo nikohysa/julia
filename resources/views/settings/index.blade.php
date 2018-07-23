@@ -3,44 +3,62 @@
 @include('layouts.header')
 
 @section('content')
-	<div class="sidebar" data-color="white" data-background-color="purple">
-		@yield('sidebar')
-	</div>
-	<div class="main-panel">
-		@yield('header')
-		<div class="content">
-			<div class="row">
-				<div class="card">
-					<div class="card-title">
-						<div class="card-header card-header-primary">
-							<h4 class="card-title">Story states</h4>
-						</div>
-					</div>
-					<div class="card-body">
-							@forelse($data['storyStates'] as $state)
-								<div class="row">
-									<div class="col-10">
-										<label>{{$state->name}}</label>
-									</div>
-									<div class="col-2">
-										<a href="#"><span class="fas fa-edit"></span> </a>
-										<a href="#"><span class="fas fa-times"></span> </a>
-									</div>
-								</div>
-								<hr>
-							@empty
-								<h4 class="badge-warning badge">
-									<label>There are currently no states, please create at least one</label>
-								</h4>
-							@endforelse
-						<br>
-						<a class="btn btn-success"  href="{{url('/settings/storyStates/create')}}">
-							<i class="fas fa-plus"></i>
-							Add new story state
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="sidebar" data-color="white" data-background-color="purple">
+        @yield('sidebar')
+    </div>
+    <div class="main-panel">
+        @yield('header')
+        <div class="content">
+            <div class="row">
+                <div class="card">
+                    <div class="card-title">
+                        <div class="card-header card-header-primary">
+                            <h4 class="card-title">Story states</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        @forelse($data['storyStates'] as $state)
+                            <div class="row">
+                                <form method="post" style="display: none" action="{{url(sprintf('settings/storyStates/delete/%s',$state->id))}}" id="form{{$state->id}}">
+                                    {{ csrf_field() }}
+
+                                </form>
+                                <div class="col-3"></div>
+                                <div class="col-6">
+                                    <table class="table">
+                                        <tbody>
+                                        <tr>
+                                            {{--FIXME: add arrows--}}
+                                            <td><h4><label class="badge badge-info">{{$state->name}}</label></h4></td>
+                                            <td width="30"><a href="{{url(sprintf('settings/storyStates/%s',$state->id))}}"><span class="fas fa-edit"></span></a></td>
+                                            <td width="30"><a href="#" onclick="document.getElementById('form{{$state->id}}').submit()"> <span class="fas fa-times"></span> </a></td>
+                                            <td width="30"><a href="#"><span class="fas fa-arrow-up"></span></a> </td>
+                                            <td width="30"><a href="#"><span class="fas fa-arrow-down"></span> </a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-3"></div>
+                            </div>
+                        @empty
+                            <div class="row">
+                                <div class="col-3"></div>
+                                <div class="col-6">
+                                    <h4 class="badge-warning badge">
+                                        <label>There are currently no states, please create at least one</label>
+                                    </h4>
+                                </div>
+                                <div class="col-3"></div>
+                            </div>
+                        @endforelse
+                        <br>
+                        <a class="btn btn-success pull-right" href="{{url('/settings/storyStates/create')}}">
+                            <i class="fas fa-plus"></i>
+                            Add new story state
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

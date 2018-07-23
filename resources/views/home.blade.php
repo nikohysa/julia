@@ -10,7 +10,6 @@
 		@yield('header')
 		<div class="content scrumboard">
 			<div class="row">
-
 				<div class="col-3 scrum-column">
 					<div class="header">
 						<h4 class="title">TODO</h4>

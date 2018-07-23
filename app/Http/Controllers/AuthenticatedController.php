@@ -24,10 +24,11 @@ class AuthenticatedController extends Controller {
 		$this->notifications = [];
 		if (!count(StoryState::all())) {
 			$this->notifications[] = [
-				'message' => "Please create at least one story state before proceding",
+				'message' => "There are no Story states,please create at least one story state before proceeding",
 				'type' => "danger",
 				'url' => "/settings"
 			];
+			redirect('/')->with('notifications', $this->notifications);
 		}
 	}
 }
