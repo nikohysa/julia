@@ -1,10 +1,5 @@
 @section('sidebar')
 	<div class="sidebar-wrapper">
-		<div class="logo">
-			<a href="{{ route('home') }}" class="simple-text logo-normal">
-				{{ config('app.name') }}
-			</a>
-		</div>
 		<ul class="nav">
 			<li class="nav-item">
 				<a class="nav-link" href="#projects" role="button" aria-expanded="false"
@@ -33,16 +28,24 @@
 				@endforeach
 				@if( $data['projects']->isEmpty())
 					<li class="nav-item">
-						<p>There are no projects currently</p>
+						<a class="nav-link disabled">There are no projects currently</a>
 					</li>
 				@endif
 				<li class="nav-item">
-					<a class="nav-link">
+					<a class="nav-link" href="{{ url('projects/create') }}">
 						<i class="fas fa-plus"></i>
 						Create new project
 					</a>
 				</li>
 			</div>
+			<li class="nav-item">
+				<a class="nav-link" href="{{url('backglog')}}">
+					<h3>
+						<i class="fas fa-clipboard-list"></i>
+						<p>Backglog</p>
+					</h3>
+				</a>
+			</li>
 		</ul>
 	</div>
 @endsection

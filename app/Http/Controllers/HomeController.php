@@ -4,17 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class HomeController extends AuthenticatedController
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.
@@ -23,9 +14,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-    	$data = [
-    		'projects'=> (new ProjectController())->index()
-		];
-        return view('home')->with('data',$data);
+        return view('home')->with('data',$this->data);
     }
 }

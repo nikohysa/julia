@@ -12,12 +12,17 @@
 */
 
 
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'HomeController@index');
 
+/**
+ * Backglog
+ */
+Route::get('/backglog', 'BackglogController@index');
 
 /**
  * Projects
@@ -25,3 +30,12 @@ Route::get('/', 'HomeController@index');
 
 Route::get('/projects','ProjectController@index');
 
+Route::get('/projects/create','ProjectController@create');
+Route::post('/projects/create','ProjectController@store');
+
+/**
+ * Stories
+ */
+
+Route::get('/stories/create','StoriesController@create');
+Route::post('/stories/create','StoriesController@store');

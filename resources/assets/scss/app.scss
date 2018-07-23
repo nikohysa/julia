@@ -54,6 +54,13 @@
  @import "material-dashboard/responsive";
 
 
+.pull-right{
+ float: right;
+}
+.pull-left {
+ float: left;
+}
+
 /*Sidebar*/
 
 .sidebar-wrapper {
@@ -63,4 +70,25 @@
  [aria-expanded="true"] .fa-folder {
   display: none;
  }
+}
+
+
+/*Header*/
+.main-panel.ps-container{
+ overflow:  visible !important;
+}
+
+
+/* Scrumboard */
+.scrumboard {
+ .header {
+  border-right: 3px solid #60b664;
+ }
+}
+
+/**
+ Hiding the "please purchase fraola editor"
+ */
+a[href="https://www.froala.com/wysiwyg-editor?k=u"] {
+ display: none !important;
 }

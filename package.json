@@ -19,6 +19,7 @@
 		"vue": "^2.5.7"
 	},
 	"dependencies": {
-		"npm": "^6.1.0"
+		"froala-editor": "^2.8.4",
+		"npm": "^6.2.0"
 	}
 }

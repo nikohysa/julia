@@ -1,11 +1,51 @@
 @extends('layouts.app')
 @include('layouts.sidebar')
+@include('layouts.header')
 
 @section('content')
 	<div class="sidebar" data-color="white" data-background-color="purple">
 		@yield('sidebar')
 	</div>
 	<div class="main-panel">
+		@yield('header')
+		<div class="content scrumboard">
+			<div class="row">
+				<div class="col-3 scrum-column">
+					<div class="header">
+						<h4 class="title">TODO</h4>
+					</div>
+					<div class="body">
+						Lorem ipsum
+					</div>
+				</div>
+				<div class="col-3">
+					<div class="header">
+						<h4 class="title">IN PROGRESS</h4>
+					</div>
+					<div class="body">
+						Lorem ipsum
+					</div>
+				</div>
+				<div class="col-3">
+					<div class="header">
+						<h4 class="title">DONE</h4>
+					</div>
+					<div class="body">
+						Lorem ipsum
+					</div>
+				</div>
+				<div class="col-3">
+					<div class="header">
+						<h4 class="title">Tested</h4>
+					</div>
+					<div class="body">
+						Lorem ipsum
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{--<div class="main-panel">
 		<nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
 			<div class="container-fluid">
 				<div class="navbar-wrapper">
@@ -69,5 +109,5 @@
 				</div>
 			</div>
 		</nav>
-	</div>
+	</div>--}}
 @endsection
