@@ -34,6 +34,17 @@
                                     <th>Sprint</th>
                                 </tr>
                                 </thead>
+                                <tbody>
+                                    @foreach($data['stories'] as $story)
+                                        <tr>
+                                            <td>{{ $story->getStoryId() }}</td>
+                                            <td>{!! $story->getTitle() !!}</td>
+                                            <td>{{ $story->getShortDescription() }}</td>
+                                            <td>{!! $story->getCreatedBy() !!} </td>
+                                            <td>{!! $story->getAssignedTo() !!} </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
                             </table>
                         </div>
                     </div>

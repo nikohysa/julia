@@ -29,5 +29,10 @@
 		$('textarea').froalaEditor()
 	});
 </script>
+{{dd(session('notifications'))}}
+@if(!empty(session('notifications')))
+	@include('layouts.notifications')
+	@yield('notifications')
+@endif
 </body>
 </html>

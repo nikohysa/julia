@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\StoryState;
 use Illuminate\Http\Request;
 
 class HomeController extends AuthenticatedController
@@ -14,6 +15,7 @@ class HomeController extends AuthenticatedController
      */
     public function index()
     {
-        return view('home')->with('data',$this->data);
+    	$this->data['storyStates'] = StoryState::all();
+    	return view('home')->with('data',$this->data);
     }
 }

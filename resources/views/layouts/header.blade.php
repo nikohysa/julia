@@ -36,6 +36,13 @@
                         </div>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/settings') }}">
+                            <i class="material-icons">
+                                <span class="fas fa-cogs"></span>
+                            </i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#" id="accountMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="material-icons">
                                 <span class="fas fa-user"></span>

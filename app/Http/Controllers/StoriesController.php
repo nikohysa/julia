@@ -7,11 +7,7 @@ use App\Story;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use function redirect;
-use function request;
-use function typeOf;
-use function var_dump;
 
 class StoriesController extends AuthenticatedController {
 	//
@@ -22,16 +18,20 @@ class StoriesController extends AuthenticatedController {
 		return view('stories/create')->with('data', $this->data);
 	}
 
-	public function store(Request $data) {
-		$d = [
-			'title' => "Hello World",
-			'project_id' => $data->project,
-			'user_id' => $data->user,
-			'created_by' => Auth::user()->id,
-			'description' => 'Helloooooo'
+	public function store(Request $request) {
+		$story = new Story();
+		$story->title = $request->title;
+		$story->description = $request->description;
+		$story->user_id = $request->user;
+		$story->created_by = Auth::user()->id;
+		$story->save();
+		$this->notifications[] = [
+			'message' =>sprintf("Story: %s created successfully", $story->title),
+			'type' => "success",
+			"id" => $story->id,
+			"url"=>"#"
 		];
-		Story::create($d);
-		redirect('/');
+		return redirect('/home')->with('notifications',$this->notifications);
 	}
 
 }

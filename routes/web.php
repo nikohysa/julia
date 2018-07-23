@@ -39,3 +39,10 @@ Route::post('/projects/create','ProjectController@store');
 
 Route::get('/stories/create','StoriesController@create');
 Route::post('/stories/create','StoriesController@store');
+
+/**
+ * Settings
+ */
+Route::get('/settings','SettingsController@index');
+Route::get('/settings/storyStates/create','SettingsController@storyStatesCreate');
+Route::post('/settings/storyStates/create','SettingsController@storyStatesStore');
