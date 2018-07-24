@@ -20922,8 +20922,12 @@ Copyright (c) 2015 Daniel Eden
 /* Scrumboard */
 
 .scrumboard .header {
-  border-right: 3px solid #60b664;
+  margin-left: 15px;
 }
+
+/**
+ Hiding the "please purchase fraola editor"
+ */
 
 a[href="https://www.froala.com/wysiwyg-editor?k=u"] {
   display: none !important;

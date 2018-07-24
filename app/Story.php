@@ -14,9 +14,9 @@ class Story extends Model
 	}
 
 	public function getTitle() {
-		return (count($this->attributes['title'])
+		return ($this->attributes['title'])
 			? $this->attributes['title']
-			: self::NA);
+			: self::NA;
 	}
 
 	public function getShortDescription() {

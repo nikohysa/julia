@@ -18,27 +18,26 @@
                     </div>
                     <div class="card-body">
                         @forelse($data['storyStates'] as $state)
-                            <div class="row">
-                                <form method="post" style="display: none" action="{{url(sprintf('settings/storyStates/delete/%s',$state->id))}}" id="form{{$state->id}}">
+                            <div class="table-responsive">
+                                <form method="post" style="display: none" action="{{url(sprintf('settings/storyStates/delete/%s',$state->id))}}"
+                                      id="form{{$state->id}}">
                                     {{ csrf_field() }}
-
                                 </form>
-                                <div class="col-3"></div>
-                                <div class="col-6">
-                                    <table class="table">
-                                        <tbody>
-                                        <tr>
-                                            {{--FIXME: add arrows--}}
-                                            <td><h4><label class="badge badge-info">{{$state->name}}</label></h4></td>
-                                            <td width="30"><a href="{{url(sprintf('settings/storyStates/%s',$state->id))}}"><span class="fas fa-edit"></span></a></td>
-                                            <td width="30"><a href="#" onclick="document.getElementById('form{{$state->id}}').submit()"> <span class="fas fa-times"></span> </a></td>
-                                            <td width="30"><a href="#"><span class="fas fa-arrow-up"></span></a> </td>
-                                            <td width="30"><a href="#"><span class="fas fa-arrow-down"></span> </a></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="col-3"></div>
+                                <table class="table">
+                                    <thead class="text-primary"></thead>
+                                    <tbody>
+                                    <tr>
+                                        {{--FIXME: add arrows--}}
+                                        <td>{{$state->name}}</td>
+                                        <td width="30"><a href="{{url(sprintf('settings/storyStates/%s',$state->id))}}"><span class="fas fa-edit"></span></a>
+                                        </td>
+                                        <td width="30"><a href="#" onclick="document.getElementById('form{{$state->id}}').submit()"> <span
+                                                        class="fas fa-times"></span> </a></td>
+                                        <td width="30"><a href="#"><span class="fas fa-arrow-up"></span></a></td>
+                                        <td width="30"><a href="#"><span class="fas fa-arrow-down"></span> </a></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         @empty
                             <div class="row">
