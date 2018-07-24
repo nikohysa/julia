@@ -37,5 +37,10 @@ class Story extends Model
 			: self::NA);
 	}
 
+	public function getState() {
+		return StoryState::find($this->status_id);
+
+	}
+
 
 }

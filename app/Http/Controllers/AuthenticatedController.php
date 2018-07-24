@@ -22,13 +22,6 @@ class AuthenticatedController extends Controller {
 			'projects' => Project::all()
 		];
 		$this->notifications = [];
-		if (!count(StoryState::all())) {
-			$this->notifications[] = [
-				'message' => "There are no Story states,please create at least one story state before proceeding",
-				'type' => "danger",
-				'url' => "/settings"
-			];
-			redirect('/')->with('notifications', $this->notifications);
-		}
+
 	}
 }

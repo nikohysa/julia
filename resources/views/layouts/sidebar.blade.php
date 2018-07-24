@@ -54,6 +54,14 @@
                     </h3>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('sprints')}}">
+                    <h3>
+                        <i class="fas fa-heartbeat"></i>
+                        <p>Sprints</p>
+                    </h3>
+                </a>
+            </li>
         </ul>
     </div>
 @endsection

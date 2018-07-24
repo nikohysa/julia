@@ -50,3 +50,16 @@ Route::post('/settings/storyStates/create','SettingsController@storyStatesStore'
 Route::get('/settings/storyStates/{id}','SettingsController@storyStatesEdit');
 Route::post('/settings/storyStates/{id}','SettingsController@storyStatesUpdates');
 Route::post('/settings/storyStates/delete/{id}','SettingsController@storyStatesDelete');
+
+/**
+ * Sprints
+ */
+
+Route::get('/sprints','SprintsController@index');
+Route::get('/sprints/create', 'SprintsController@create');
+Route::post('/sprints/create','SprintsController@store');
+Route::get('/sprints/{id}','SprintsController@edit');
+Route::post('/sprints/update/{$id}','SettingsController@updateSprint');
+Route::post('/sprints/delete/{id}','SprintsController@delete');
+
+
