@@ -57,7 +57,7 @@
                                                     <option disabled selected>--</option>
                                                     @foreach($data['sprints'] as $sprint)
                                                         <option value="{{$sprint->id}}"
-                                                            @if($sprint-id == $story-sprint_id)
+                                                            @if($sprint->id == $story->sprint_id)
                                                                 selected="selected"
                                                             @endif></option>
 

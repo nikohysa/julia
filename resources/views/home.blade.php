@@ -13,7 +13,9 @@
                 @forelse($data['storyStates'] as $state)
                     <div class="col-3 scrum-column">
                         <div class="header">
-                            <h4 class="title">{{$state->name}}</h4>
+                            <h4 class="title">
+                                <span class="fas fa-bars label-default"></span>
+                                {{$state->name}}</h4>
                         </div>
                         <div class="body">
                             @forelse($state->getStories() as $story)

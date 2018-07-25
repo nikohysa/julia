@@ -59,7 +59,8 @@ Route::get('/sprints','SprintsController@index');
 Route::get('/sprints/create', 'SprintsController@create');
 Route::post('/sprints/create','SprintsController@store');
 Route::get('/sprints/{id}','SprintsController@edit');
-Route::post('/sprints/update/{$id}','SettingsController@updateSprint');
+Route::post('/sprints/update/{id}','SprintsController@update');
 Route::post('/sprints/delete/{id}','SprintsController@delete');
+Route::post('/sprint/active', 'SprintsController@makeActive');
 
 
