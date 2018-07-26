@@ -33,5 +33,26 @@ class StoriesController extends AuthenticatedController {
 		];
 		return redirect('/home')->with('notifications',$this->notifications);
 	}
+	public function update(Request $request, $id) {
+		$story = Story::find($id);
+		$story->title = ($request->exists('title') ?
+			$request->input('title'):
+			$story->title);
+		$story->description = ($request->exists('description') ?
+			$request->input('description'):
+			$story->description);
+		$story->user_id = ($request->exists('user_id') ?
+			$request->input('user_id'):
+			$story->user_id);
+		$story->status_id = ($request->exists('status_id')?
+			$request->input('status_id'):
+			$story->status_id);
+
+		$story->sprint_id = ($request->exists('sprint_id') ?
+			$request->input('sprint_id'):
+			$story->sprint_id);
+		$story->update();
+		return $story;
+	}
 
 }

@@ -13,6 +13,7 @@ use App\Project;
 use App\Sprint;
 use App\Story;
 use App\StoryState;
+use App\User;
 
 class BackglogController extends AuthenticatedController {
 
@@ -20,6 +21,7 @@ class BackglogController extends AuthenticatedController {
 		$this->data['stories'] = Story::all();
 		$this->data['states'] = StoryState::all();
 		$this->data['sprints'] = Sprint::all();
+		$this->data['users'] = User::all();
 		return view('backglog/index')->with('data',$this->data);
 	}
 

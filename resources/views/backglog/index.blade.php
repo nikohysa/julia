@@ -35,15 +35,26 @@
                                 </thead>
                                 <tbody>
                                     @foreach($data['stories'] as $story)
-                                        <tr>
+                                        <tr data-element="story" data-element-id="{{$story->id}}">
                                             <td>{{ $story->getStoryId() }}</td>
                                             <td>{!! $story->getTitle() !!}</td>
                                             <td>{{ $story->getShortDescription() }}</td>
                                             <td>{!! $story->getCreatedBy() !!} </td>
-                                            <td>{!! $story->getAssignedTo() !!} </td>
                                             <td>
-                                                <select class="form-control">
-                                                    <option disabled selected>--</option>
+                                                <select class="form-control" data-control="assignedTo">
+                                                    <option selected value="0">--</option>
+                                                    @foreach($data['users'] as $user)
+                                                        <option value="{{$user->id}}"
+                                                        @if($story->user_id == $user->id)
+                                                            selected="selected"
+                                                                @endif
+                                                        >{{$user->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select class="form-control" data-control="status">
+                                                    <option selected value="0">--</option>
                                                     @foreach($data['states'] as $state)
                                                         <option value="{{$state->id}}"
                                                             @if($state->id == $story->getState()['id'])
@@ -53,16 +64,16 @@
                                                 </select>
                                             </td>
                                             <td>
-                                                <section class="form-control">
-                                                    <option disabled selected>--</option>
+                                                <select class="form-control" data-control="sprint">
+                                                    <option selected value="0">--</option>
                                                     @foreach($data['sprints'] as $sprint)
                                                         <option value="{{$sprint->id}}"
                                                             @if($sprint->id == $story->sprint_id)
                                                                 selected="selected"
-                                                            @endif></option>
+                                                            @endif>{{$sprint->name}}</option>
 
                                                     @endforeach
-                                                </section>
+                                                </select>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -74,4 +85,7 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+
+    </script>
 @endsection

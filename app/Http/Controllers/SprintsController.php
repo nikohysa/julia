@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\DB;
 use function redirect;
 use function strtotime;
 use function var_dump;
-
 class SprintsController extends AuthenticatedController {
 	public function index() {
 		$this->data['sprints'] = Sprint::all();
@@ -82,7 +81,7 @@ class SprintsController extends AuthenticatedController {
 		}
 		$sprint->start_date = $request->start_date;
 		$sprint->end_date = $request->end_date;
-		$sprint->save();
+		$sprint->update();
 		
 		$this->notifications[] = [
 			'message' => "Sprint modified successfull",

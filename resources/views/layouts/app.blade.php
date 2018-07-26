@@ -26,7 +26,12 @@
 <script src="/js/core.js"></script>
 <script>
 	$(function() {
-		$('textarea').froalaEditor()
+		$('textarea').froalaEditor();
+		$.ajaxSetup({
+			headers: {
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			}
+		})
 	});
 </script>
 @if(!empty(session('notifications')))

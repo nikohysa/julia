@@ -39,7 +39,7 @@ Route::post('/projects/create','ProjectController@store');
 
 Route::get('/stories/create','StoriesController@create');
 Route::post('/stories/create','StoriesController@store');
-
+Route::post('/stories/update/{id}','StoriesController@update');
 /**
  * Settings
  */

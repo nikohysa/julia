@@ -29,7 +29,9 @@ mix.babel([
 	'resources/assets/js/plugins/perfect-scrollbar.jquery.min.js',
 	'resources/assets/js/material-dashboard.js',
 	'resources/assets/js/core/bootstrap-material-design.min.js',
-	'node_modules/froala-editor/js/froala_editor.min.js'
+	'node_modules/froala-editor/js/froala_editor.min.js',
+	'resources/assets/js/Notifications.js',
+	'resources/assets/js/backlog.js',
 ],'public/js/core.js');
 
 
