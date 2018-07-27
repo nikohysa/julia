@@ -92,3 +92,53 @@
 a[href="https://www.froala.com/wysiwyg-editor?k=u"] {
  display: none !important;
 }
+
+/**
+ backlog
+ */
+
+[data-element="story"] td:nth-child(-n + 3) {
+  cursor: pointer;
+}
+[data-element="story"]:hover {
+  background-color: #fff3cd;
+ border: 1px solid #ffeeba;
+ border-radius: .25rem;
+}
+div.table-responsive {
+  overflow-x: hidden;
+}
+
+/**
+ Notifications
+ */
+
+[data-element="notification"] {
+ -moz-animation: cssAnimation 2s ease-in 3s forwards;
+ /* Firefox */
+ -webkit-animation: cssAnimation 2s ease-in 3s forwards;
+ /* Safari and Chrome */
+ -o-animation: cssAnimation 2s ease-in 3s forwards;
+ /* Opera */
+ animation: cssAnimation 2s ease-in 3s forwards;
+ -webkit-animation-fill-mode: forwards;
+ animation-fill-mode: forwards;
+}
+@keyframes cssAnimation {
+ to {
+  width:0;
+  height:0;
+  overflow:hidden;
+  visibility: hidden;
+  opacity: 0;
+ }
+}
+@-webkit-keyframes cssAnimation {
+ to {
+  width:0;
+  height:0;
+  overflow: hidden;
+  visibility:hidden;
+  opacity: 0;
+ }
+}

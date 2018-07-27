@@ -16,23 +16,39 @@ Notification.prototype.buildHTML = function () {
 }
 Notifications.prototype.addNotification = function (notification) {
 	$("body").append(notification.html);
+	closeNotificationEvent();
+	notificationsUpdatingEvent();
+}
 
+function closeNotificationEvent() {
 	$('button[data-notify="dismiss"]').on('click', function () {
 		$(this).parent('div[role="alert"]').remove();
 	});
-
-	$(function () {
-		let elements = $('div[data-element="notification"]');
-		elements.each(function () {
-			let self = $(this);
-			let prev = $(this).prev('div[data-element="notification"]');
-
-			if (prev.length > 0) {
-				self.css('bottom', parseInt(prev.css('bottom').substr(0,prev.css('bottom').indexOf('p'))) +70);
-			} else {
-				self.css('bottom', 20 + 'px');
-			}
-		})
-	});
-
 }
+function notificationsUpdatingEvent() {
+	let elements = $('div[data-element="notification"]');
+	elements.each(function () {
+		let self = $(this);
+		let prev = $(this).prev('div[data-element="notification"]');
+
+		if (prev.length > 0) {
+			self.css('bottom', parseInt(prev.css('bottom').substr(0,prev.css('bottom').indexOf('p'))) +70);
+		} else {
+			self.css('bottom', 20 + 'px');
+		}
+
+		setTimeout(function () {
+			closeNotification(self);
+		}, 5000)
+	})
+}
+function closeNotification(element) {
+	let _el = $(element);
+	_el.remove();
+}
+$(function () {
+
+	closeNotificationEvent();
+
+	notificationsUpdatingEvent();
+});

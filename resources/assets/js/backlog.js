@@ -26,6 +26,9 @@ Story.prototype.addEvents = function () {
 	})
 	self.sprint.on('change', function () {
 		self.updateSprint();
+	});
+	self.widget.find('td:nth-child(-n+3)').on('click', function () {
+		window.location = "/story/"+self.id;
 	})
 };
 Story.prototype.updateAssignedTo = function () {

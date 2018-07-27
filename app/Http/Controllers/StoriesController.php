@@ -8,9 +8,19 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use function redirect;
+use function view;
 
 class StoriesController extends AuthenticatedController {
 	//
+	
+	public function get($id) {
+		$story = Story::find($id);
+		
+		$this->data['sprints'] = Sprint::all();
+		$this->data['users'] = User::all();
+		$this->data['story'] = $story;
+		return view('stories.index')->with('data',$this->data);
+	}
 
 	public function create() {
 		$this->data['sprints'] = Sprint::all();
