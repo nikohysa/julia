@@ -41,6 +41,9 @@ Route::get('/stories/create','StoriesController@create');
 Route::post('/stories/create','StoriesController@store');
 Route::post('/stories/update/{id}','StoriesController@update');
 Route::get('/story/{id}', 'StoriesController@get');
+Route::get('/story/ajax/{id}', 'StoriesController@getAjax');
+Route::post('/story/{id}','StoriesController@updateWeb');
+Route::post('/story/{id}/delete', 'StoriesController@delete');
 /**
  * Settings
  */

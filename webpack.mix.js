@@ -24,6 +24,7 @@ mix.webpackConfig({
 mix.babel([
 	'resources/assets/js/core/jquery.min.js',
 	'resources/assets/js/core/popper.min.js',
+	'resources/assets/js/core/jquery-ui.min.js',
 	'resources/assets/js/plugins/bootstrap-notify.js',
 	'resources/assets/js/plugins/chartist.min.js',
 	'resources/assets/js/plugins/perfect-scrollbar.jquery.min.js',
@@ -32,6 +33,7 @@ mix.babel([
 	'node_modules/froala-editor/js/froala_editor.min.js',
 	'resources/assets/js/Notifications.js',
 	'resources/assets/js/backlog.js',
+	'resources/assets/js/board.js'
 ],'public/js/core.js');
 
 

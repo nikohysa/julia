@@ -12,99 +12,99 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
  */
-
- @import "material-dashboard/variables";
- @import "material-dashboard/mixins";
- @import "material-dashboard/core-bootstrap";
-
- // Core Components
- @import "material-dashboard/buttons";
- @import "material-dashboard/checkboxes";
- @import "material-dashboard/radios";
- @import "material-dashboard/forms";
- @import "material-dashboard/input-group";
- @import "material-dashboard/images";
- @import "material-dashboard/navbar";
- @import "material-dashboard/alerts";
- @import "material-dashboard/headers";
- @import "material-dashboard/type";
- @import "material-dashboard/tabs";
- @import "material-dashboard/tooltip";
- @import "material-dashboard/popover";
- @import "material-dashboard/dropdown";
- @import "material-dashboard/togglebutton";
- @import "material-dashboard/ripples";
- @import "material-dashboard/footers";
- @import "material-dashboard/sidebar-and-main-panel";
- @import "material-dashboard/fixed-plugin";
- @import "material-dashboard/tables";
- @import "material-dashboard/misc";
- @import "material-dashboard/social-buttons";
-
+@import "material-dashboard/variables";
+@import "material-dashboard/mixins";
+@import "material-dashboard/core-bootstrap";
+// Core Components
+@import "material-dashboard/buttons";
+@import "material-dashboard/checkboxes";
+@import "material-dashboard/radios";
+@import "material-dashboard/forms";
+@import "material-dashboard/input-group";
+@import "material-dashboard/images";
+@import "material-dashboard/navbar";
+@import "material-dashboard/alerts";
+@import "material-dashboard/headers";
+@import "material-dashboard/type";
+@import "material-dashboard/tabs";
+@import "material-dashboard/tooltip";
+@import "material-dashboard/popover";
+@import "material-dashboard/dropdown";
+@import "material-dashboard/togglebutton";
+@import "material-dashboard/ripples";
+@import "material-dashboard/footers";
+@import "material-dashboard/sidebar-and-main-panel";
+@import "material-dashboard/fixed-plugin";
+@import "material-dashboard/tables";
+@import "material-dashboard/misc";
+@import "material-dashboard/social-buttons";
 @import "material-dashboard/cards";
 @import "material-dashboard/cards/card-stats";
 @import "material-dashboard/cards/card-profile";
 @import "material-dashboard/cards/card-plain";
+//plugin scss
+@import "material-dashboard/plugins/animate";
+@import "material-dashboard/plugins/chartist";
+@import "material-dashboard/plugins/perfect-scrollbar";
+@import "material-dashboard/responsive";
 
- //plugin scss
- @import "material-dashboard/plugins/animate";
- @import "material-dashboard/plugins/chartist";
- @import "material-dashboard/plugins/perfect-scrollbar";
-
- @import "material-dashboard/responsive";
-
-
-.pull-right{
- float: right;
+.pull-right {
+  float: right;
 }
+
 .pull-left {
- float: left;
+  float: left;
 }
 
 /*Sidebar*/
 
 .sidebar-wrapper {
- [aria-expanded="false"] .fa-folder-open {
-  display: none;
- }
- [aria-expanded="true"] .fa-folder {
-  display: none;
- }
+  [aria-expanded="false"] .fa-folder-open {
+	display: none;
+  }
+  [aria-expanded="true"] .fa-folder {
+	display: none;
+  }
 }
-
 
 /*Header*/
-.main-panel.ps-container{
- overflow:  visible !important;
+.main-panel.ps-container {
+  overflow: visible !important;
 }
-
 
 /* Scrumboard */
 .scrumboard {
- .header {
-  margin-left: 15px;
- }
+  .header {
+	margin-left: 15px;
+  }
+  [data-element="board-story"].clicked {
+	-webkit-box-shadow: 7px 10px 29px 2px rgba(111,163,83,1);
+	-moz-box-shadow: 7px 10px 29px 2px rgba(111,163,83,1);
+	box-shadow: 7px 10px 29px 2px rgba(111,163,83,1);
+  }
 }
 
 /**
  Hiding the "please purchase fraola editor"
  */
 a[href="https://www.froala.com/wysiwyg-editor?k=u"] {
- display: none !important;
+  display: none !important;
 }
 
 /**
  backlog
  */
 
-[data-element="story"] td:nth-child(-n + 3) {
+[data-element="story"] td:nth-child(-n + 4) {
   cursor: pointer;
 }
+
 [data-element="story"]:hover {
   background-color: #fff3cd;
- border: 1px solid #ffeeba;
- border-radius: .25rem;
+  border: 1px solid #ffeeba;
+  border-radius: .25rem;
 }
+
 div.table-responsive {
   overflow-x: hidden;
 }
@@ -114,31 +114,35 @@ div.table-responsive {
  */
 
 [data-element="notification"] {
- -moz-animation: cssAnimation 2s ease-in 3s forwards;
- /* Firefox */
- -webkit-animation: cssAnimation 2s ease-in 3s forwards;
- /* Safari and Chrome */
- -o-animation: cssAnimation 2s ease-in 3s forwards;
- /* Opera */
- animation: cssAnimation 2s ease-in 3s forwards;
- -webkit-animation-fill-mode: forwards;
- animation-fill-mode: forwards;
+  -moz-animation: cssAnimation 2s ease-in 3s forwards;
+  /* Firefox */
+  -webkit-animation: cssAnimation 2s ease-in 3s forwards;
+  /* Safari and Chrome */
+  -o-animation: cssAnimation 2s ease-in 3s forwards;
+  /* Opera */
+  animation: cssAnimation 2s ease-in 3s forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
 }
+
 @keyframes cssAnimation {
- to {
-  width:0;
-  height:0;
-  overflow:hidden;
-  visibility: hidden;
-  opacity: 0;
- }
+  to {
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+	opacity: 0;
+  }
 }
+
 @-webkit-keyframes cssAnimation {
- to {
-  width:0;
-  height:0;
-  overflow: hidden;
-  visibility:hidden;
-  opacity: 0;
- }
+  to {
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+	opacity: 0;
+  }
 }
+
+

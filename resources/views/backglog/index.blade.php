@@ -3,10 +3,10 @@
 @include('layouts.header')
 
 @section('content')
-    <div class="sidebar" data-color="white" data-background-color="purple">
+    {{--<div class="sidebar" data-color="white" data-background-color="purple">
         @yield('sidebar')
-    </div>
-    <div class="main-panel">
+    </div>--}}
+    <div class="main-panel" style="width: 100%">
         @yield('header')
         <div class="content">
             <div class="container-fluid">
@@ -15,7 +15,7 @@
                         <h4 class="card-title">Backglog</h4>
                     </div>
                     <br>
-                    <div class="card-body">
+                    <div class="card-body" data-element="backlog">
                         <a class="btn btn-success pull-right" href="{{url('stories/create')}}">
                             <span class="fas fa-plus"></span>
                             Create new Story
@@ -31,6 +31,7 @@
                                     <th>Assigned to</th>
                                     <th>Status</th>
                                     <th>Sprint</th>
+                                    <th>Project</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -41,7 +42,7 @@
                                             <td>{{ $story->getShortDescription() }}</td>
                                             <td>{!! $story->getCreatedBy() !!} </td>
                                             <td>
-                                                <select class="form-control" data-control="assignedTo">
+                                                <select class="custom-select" data-control="assignedTo">
                                                     <option selected value="0">--</option>
                                                     @foreach($data['users'] as $user)
                                                         <option value="{{$user->id}}"
@@ -53,7 +54,7 @@
                                                 </select>
                                             </td>
                                             <td>
-                                                <select class="form-control" data-control="status">
+                                                <select class="custom-select" data-control="status">
                                                     <option selected value="0">--</option>
                                                     @foreach($data['states'] as $state)
                                                         <option value="{{$state->id}}"
@@ -64,7 +65,7 @@
                                                 </select>
                                             </td>
                                             <td>
-                                                <select class="form-control" data-control="sprint">
+                                                <select class="custom-select" data-control="sprint">
                                                     <option selected value="0">--</option>
                                                     @foreach($data['sprints'] as $sprint)
                                                         <option value="{{$sprint->id}}"
@@ -75,17 +76,36 @@
                                                     @endforeach
                                                 </select>
                                             </td>
+                                            <td>
+                                                <select class="custom-select" data-control="project">
+                                                    <option selected value="0">--</option>
+                                                    @foreach($data['projects'] as $project)
+                                                        <option value="{{$project->id}}"
+                                                            @if($sprint->id == $story->project_id)
+                                                                selected="selected"
+                                                            @endif>{{$project->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
+                            @if($data['stories']->isEmpty())
+                                <div class="row">
+                                    <div class="col-3"></div>
+                                    <div class="col-6">
+                                        <h4 class="badge-warning badge">
+                                            <label>There are currently no sprints, please create at least one</label>
+                                        </h4>
+                                    </div>
+                                    <div class="col-3"></div>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-
-    </script>
 @endsection

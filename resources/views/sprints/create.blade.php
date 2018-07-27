@@ -13,7 +13,7 @@
 				<div class="card">
 					<div class="card-title">
 						<div class="card-header card-header-primary">
-							<h4 class="card-title">Create new story state</h4>
+							<h4 class="card-title">Create new sprint</h4>
 						</div>
 					</div>
 					<div class="card-body">

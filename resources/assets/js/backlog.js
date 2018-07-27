@@ -1,8 +1,10 @@
 
-let Backlog = function() {
-	$('[data-element=story]').each(function () {
+let Backlog = function(widget) {
+	let self = this;
+	self.widget = $(widget);
+	self.widget.find('[data-element=story]').each(function () {
 		new Story(this);
-	})
+	});
 }
 
 let Story = function (story) {
@@ -14,6 +16,7 @@ let Story = function (story) {
 	self.assigned = self.widget.find('[data-control=assignedTo]');
 	self.status = self.widget.find('[data-control=status]');
 	self.sprint = self.widget.find('[data-control=sprint]');
+	self.project = self.widget.find('[data-control=project]');
 	self.addEvents();
 };
 Story.prototype.addEvents = function () {
@@ -27,8 +30,11 @@ Story.prototype.addEvents = function () {
 	self.sprint.on('change', function () {
 		self.updateSprint();
 	});
-	self.widget.find('td:nth-child(-n+3)').on('click', function () {
+	self.widget.find('td:nth-child(-n+4)').on('click', function () {
 		window.location = "/story/"+self.id;
+	})
+	self.project.on('change', function () {
+		self.updateProject();
 	})
 };
 Story.prototype.updateAssignedTo = function () {
@@ -67,5 +73,18 @@ Story.prototype.updateSprint = function () {
 		new Notifications().addNotification(new Notification("Story updated","success","#"))
 	})
 }
+Story.prototype.updateProject = function () {
+	let self = this;
+	jQuery.ajax({
+		url: '/stories/update/' + self.id,
+		data: {
+			project_id: self.project.val()
+		},
+		method:"POST"
+	}).done(function (response) {
+		new Notifications().addNotification(new Notification("Story updated","success","#"))
+	})
+}
+
 /*INIT*/
-new Backlog();
+new Backlog("[data-element=backlog]");

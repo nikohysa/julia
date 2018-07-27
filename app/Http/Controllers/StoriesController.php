@@ -12,14 +12,17 @@ use function view;
 
 class StoriesController extends AuthenticatedController {
 	//
-	
+
 	public function get($id) {
 		$story = Story::find($id);
-		
+
 		$this->data['sprints'] = Sprint::all();
 		$this->data['users'] = User::all();
 		$this->data['story'] = $story;
-		return view('stories.index')->with('data',$this->data);
+		return view('stories.edit')->with('data',$this->data);
+	}
+	public function getAjax($id) {
+		return Story::find($id);
 	}
 
 	public function create() {
@@ -54,15 +57,37 @@ class StoriesController extends AuthenticatedController {
 		$story->user_id = ($request->exists('user_id') ?
 			$request->input('user_id'):
 			$story->user_id);
-		$story->status_id = ($request->exists('status_id')?
+		$story->status_id = ($request->exists('status_id') ?
 			$request->input('status_id'):
 			$story->status_id);
-
 		$story->sprint_id = ($request->exists('sprint_id') ?
 			$request->input('sprint_id'):
 			$story->sprint_id);
+		$story->project_id = ($request->exists('project_id') ?
+			$request->input('project_id'):
+			$story->project_id);
 		$story->update();
 		return $story;
 	}
 
+	public function updateWeb(Request $request, $id) {
+		$story = $this->update($request, $id);
+		$this->notifications[] = [
+			'message' =>sprintf("Story: %s updated successfully", $story->title),
+			'type' => "success",
+			"id" => $story->id,
+			"url"=>"#"
+		];
+		return redirect('/backglog')->with('notifications', $this->notifications);
+	}
+	public function delete($id) {
+		$story = Story::find($id);
+		$story->delete();
+		$this->notifications[] = [
+			'message' =>sprintf("Story: %s deleted", $story->title),
+			'type' => "success",
+			"url"=>"#"
+		];
+		return redirect('/backglog')->with('notifications', $this->notifications);
+	}
 }
